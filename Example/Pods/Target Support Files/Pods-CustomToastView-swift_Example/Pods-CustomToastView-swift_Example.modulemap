@@ -1,0 +1,6 @@
+framework module Pods_CustomToastView_swift_Example {
+  umbrella header "Pods-CustomToastView-swift_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

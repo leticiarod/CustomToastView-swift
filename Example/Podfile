@@ -3,7 +3,7 @@ use_frameworks!
 platform :ios, '9.0'
 
 target 'CustomToastView-swift_Example' do
-  pod 'CustomToastView-swift', :path => '../'
+  pod 'CustomToastView-swift'
 
   target 'CustomToastView-swift_Tests' do
     inherit! :search_paths

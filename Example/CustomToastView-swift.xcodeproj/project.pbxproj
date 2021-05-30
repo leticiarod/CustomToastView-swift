@@ -38,11 +38,11 @@
 		607FACE51AFB9204008FA782 /* CustomToastView-swift_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CustomToastView-swift_Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		65371A58807AB0B132AEB54E /* CustomToastView-swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = "CustomToastView-swift.podspec"; path = "../CustomToastView-swift.podspec"; sourceTree = "<group>"; };
+		65371A58807AB0B132AEB54E /* CustomToastView-swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "CustomToastView-swift.podspec"; path = "../CustomToastView-swift.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		86DB1F8EC9C5E557244A9AC0 /* Pods-CustomToastView-swift_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomToastView-swift_Example.release.xcconfig"; path = "Target Support Files/Pods-CustomToastView-swift_Example/Pods-CustomToastView-swift_Example.release.xcconfig"; sourceTree = "<group>"; };
 		88A5655D64246BB1C9C54FBD /* Pods-CustomToastView-swift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomToastView-swift_Example.debug.xcconfig"; path = "Target Support Files/Pods-CustomToastView-swift_Example/Pods-CustomToastView-swift_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9F5311B450DB63A17E17FFF0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		A75BB482229A4C0BC23EE0C1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		9F5311B450DB63A17E17FFF0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		A75BB482229A4C0BC23EE0C1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BDF31CF7657B1223C855C00F /* Pods_CustomToastView_swift_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomToastView_swift_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB6E82378B8449F86EC0D26 /* Pods-CustomToastView-swift_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomToastView-swift_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CustomToastView-swift_Tests/Pods-CustomToastView-swift_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E59D5773D1F2C1094339207A /* Pods-CustomToastView-swift_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomToastView-swift_Tests.release.xcconfig"; path = "Target Support Files/Pods-CustomToastView-swift_Tests/Pods-CustomToastView-swift_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,7 +86,6 @@
 				CAB6E82378B8449F86EC0D26 /* Pods-CustomToastView-swift_Tests.debug.xcconfig */,
 				E59D5773D1F2C1094339207A /* Pods-CustomToastView-swift_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

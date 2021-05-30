@@ -1,0 +1,16 @@
+PODS:
+  - CustomToastView-swift (0.1.0)
+
+DEPENDENCIES:
+  - CustomToastView-swift (from `../`)
+
+EXTERNAL SOURCES:
+  CustomToastView-swift:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CustomToastView-swift: 0f60548771fc8c9b85148ae452865b25494316df
+
+PODFILE CHECKSUM: 591de387feb46aa7e2b04d771e597e8ce61b6e2d
+
+COCOAPODS: 1.9.3

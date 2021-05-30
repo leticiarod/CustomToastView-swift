@@ -1,5 +1,5 @@
 import XCTest
-import CustomToastView-swift
+//import CustomToastView-swift
 
 class Tests: XCTestCase {
     
