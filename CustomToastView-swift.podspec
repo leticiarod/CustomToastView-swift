@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CustomToastView-swift'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A small framework to display toast messages in Swift.'
 
 # This description is used to generate tags and improve search results.
