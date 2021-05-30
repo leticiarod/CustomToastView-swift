@@ -22,7 +22,7 @@ pod 'CustomToastView-swift'
 
 ## Author
 
-lrodriguez@codigodelsur.com, lrodriguez@codigodelsur.com
+lrodriguez, leticiamrgs@gmail.com
 
 ## License
 
