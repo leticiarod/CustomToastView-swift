@@ -30,7 +30,6 @@ CustomToastView is a small and lightweight Swift framework that allows you to di
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = '*.{swift}'
   s.source_files = 'Source/*.{swift,xib}'
   
   s.swift_version = "5.0"
