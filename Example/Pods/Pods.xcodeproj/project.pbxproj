@@ -120,11 +120,7 @@
 		436AE6F92EEEDC02D8A0FE0D1E1AD7A1 /* CustomToastView-swift */ = {
 			isa = PBXGroup;
 			children = (
-				9754A5DC2663313B007D83F7 /* CustomToastView.swift */,
-				9754A5DA2663313B007D83F7 /* CustomToastView.xib */,
-				9754A5DB2663313B007D83F7 /* NSObjectExtension.swift */,
-				9754A5DE2663313B007D83F7 /* UIViewControlerExtension.swift */,
-				9754A5DD2663313B007D83F7 /* UIViewExtension.swift */,
+				9754A6F72663D6D4007D83F7 /* Source */,
 				54FE120095C702F00231F5703DCD6E80 /* Pod */,
 				8DD80ACF664DAED2BC3210662E4CC711 /* Support Files */,
 			);
@@ -181,6 +177,18 @@
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/CustomToastView-swift";
+			sourceTree = "<group>";
+		};
+		9754A6F72663D6D4007D83F7 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9754A5DE2663313B007D83F7 /* UIViewControlerExtension.swift */,
+				9754A5DC2663313B007D83F7 /* CustomToastView.swift */,
+				9754A5DA2663313B007D83F7 /* CustomToastView.xib */,
+				9754A5DB2663313B007D83F7 /* NSObjectExtension.swift */,
+				9754A5DD2663313B007D83F7 /* UIViewExtension.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		9DBE25C435BE3121F9DD6164A7A6256F /* Development Pods */ = {
