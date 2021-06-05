@@ -79,23 +79,24 @@ class CustomToastView: UIView {
         containerView.addGestureRecognizer(gesture)
     }
     
-    func configToast(type: CustomToastType = .simple,
-                     font: UIFont = UIFont.systemFont(ofSize: 14, weight: .light),
-                     textColor: UIColor = .white,
-                     backgroundColor: UIColor = .magenta,
-                     title: String = "Hello! I'm a toast message!",
-                     actionTextColor: UIColor = .black,
-                     actionText: String? = nil,
-                     actionFont: UIFont = UIFont.systemFont(ofSize: 14, weight: .regular)) {
+    func config(type: CustomToastType) {
         self.type = type
         
-        containerView.backgroundColor = backgroundColor
+        containerView.backgroundColor = .magenta
+    }
+    
+    func configToast(data: ToastData) {
+        self.type = data.type
         
-        toastMessageLabel.textColor = textColor
-        toastMessageLabel.text = title
         
-        actionLabel.textColor = actionTextColor
-        actionLabel.text = actionText
+        containerView.backgroundColor = data.backgroundColor
+        
+        toastMessageLabel.textColor = data.textColor
+        toastMessageLabel.text = data.title
+        toastMessageLabel.font = data.font
+        
+        actionLabel.textColor = data.actionTextColor
+        actionLabel.text = data.actionText
         
         hideAction(for: type)
     }
