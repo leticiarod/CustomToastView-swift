@@ -10,6 +10,8 @@ public enum ToastOrientation {
     case topToBottom
     case leftToRight
     case rightToLeft
+    case fadeIn
+    case fadeOut
 }
 
 public class Toast {
@@ -56,17 +58,12 @@ public class Toast {
         
 //        let toastHeight: CGFloat = 54
 //        let defaultDistance: CGFloat = 16
+        
         // CORNER RADIUS
-        
-        // FADE IN
-        
-        // FADE OUT
         
         // TIME DISMISSAL
         
         // Do not dismiss
-        
-        // animation type bottom to top, top to bottom, left to right etc 
         
         public func orientation(_ orientation: ToastOrientation) -> Builder {
             data.orientation = orientation

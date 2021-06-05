@@ -47,6 +47,14 @@ extension UIViewController {
             configureFromRightToLeft(customToastView: customToastView,
                                      toastHeight: toastHeight,
                                      defaultDistance: defaultDistance)
+        case .fadeIn:
+            configureFadeIn(customToastView: customToastView,
+                            toastHeight: toastHeight,
+                            defaultDistance: defaultDistance)
+        case .fadeOut:
+            configureFadeOut(customToastView: customToastView,
+                             toastHeight: toastHeight,
+                             defaultDistance: defaultDistance)
         }
     }
     
@@ -186,6 +194,45 @@ extension UIViewController {
                                               })
             }
         }
+    }
+    
+    fileprivate func configureFadeIn(customToastView: CustomToastView,
+                                     toastHeight: CGFloat,
+                                     defaultDistance: CGFloat) {
+        NSLayoutConstraint.activate([
+            customToastView.heightAnchor.constraint(equalToConstant: toastHeight),
+            customToastView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: defaultDistance),
+            customToastView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -defaultDistance),
+            customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -toastHeight),
+        ])
         
+        UIView.animate(withDuration: 4.0,
+                       delay: 0.1,
+                       options: .curveEaseIn,
+                       animations: {
+            customToastView.alpha = 0.0
+        }, completion: {(isCompleted) in
+            customToastView.removeFromSuperview()
+        })
+    }
+    
+    fileprivate func configureFadeOut(customToastView: CustomToastView,
+                                      toastHeight: CGFloat,
+                                      defaultDistance: CGFloat) {
+        NSLayoutConstraint.activate([
+            customToastView.heightAnchor.constraint(equalToConstant: toastHeight),
+            customToastView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: defaultDistance),
+            customToastView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -defaultDistance),
+            customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -toastHeight),
+        ])
+        
+        UIView.animate(withDuration: 3.0,
+                       delay: 0.1,
+                       options: .curveEaseOut,
+                       animations: {
+            customToastView.alpha = 0.0
+        }, completion: {(isCompleted) in
+            customToastView.removeFromSuperview()
+        })
     }
 }

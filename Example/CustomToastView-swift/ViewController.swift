@@ -16,17 +16,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // showToast(with: .simple)
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     @IBAction func bottomToTopTapped(_ sender: Any) {
         Toast.Builder()
@@ -79,10 +72,27 @@ class ViewController: UIViewController {
     }
     
     @IBAction func fadeInTapped(_ sender: Any) {
-        
+        Toast.Builder()
+            .type(.simple)
+            .font(UIFont.systemFont(ofSize: 12, weight: .medium))
+            .backgroundColor(.magenta)
+            .textColor(.white)
+            .title("Soy un toast!")
+            .orientation(.fadeIn)
+            .build()
+            .show(viewController: self)
     }
     
     @IBAction func fadeOutTapped(_ sender: Any) {
+        Toast.Builder()
+            .type(.simple)
+            .font(UIFont.systemFont(ofSize: 12, weight: .medium))
+            .backgroundColor(.magenta)
+            .textColor(.white)
+            .title("Soy un toast!")
+            .orientation(.fadeOut)
+            .build()
+            .show(viewController: self)
     }
 }
 
