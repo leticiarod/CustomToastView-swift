@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cm4-ZY-u4R">
-                                <rect key="frame" x="106" y="133.5" width="163" height="400"/>
+                                <rect key="frame" x="106" y="103.5" width="163" height="460"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Toasts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IB-lP-Um3">
                                         <rect key="frame" x="0.0" y="0.0" width="163" height="40"/>
@@ -119,6 +119,21 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="fadeOutTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Eic-9s-2Uz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jw-PI-FeM">
+                                        <rect key="frame" x="0.0" y="420" width="163" height="40"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Dimiss by tapping">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="dismissByTapping:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zN6-Zg-1xZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
