@@ -6,7 +6,7 @@
 //
 
 public struct ToastData {
-    var type: CustomToastType = .simple
+    //var type: CustomToastType = .simple
     var font = UIFont.systemFont(ofSize: 14,
                                  weight: .light)
     var textColor: UIColor = .white
@@ -25,6 +25,7 @@ public struct ToastData {
     var timeDismissal = 0.5 // TODO: ver diferencia
     var verticalPosition: CGFloat = 54
     var shouldDismissAfterPresenting = false
+    var textAlignment: NSTextAlignment = .center
     
     public init() {
         

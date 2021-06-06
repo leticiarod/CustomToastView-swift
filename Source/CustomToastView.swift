@@ -10,9 +10,9 @@ import UIKit
 /// Simple has no action at the right
 /// Action has an action at the right
 
-public enum CustomToastType {
-    case simple
-    case action
+//public enum CustomToastType {
+//    case simple
+//    case action
     
 //    func title() -> String {
 //        switch self {
@@ -52,15 +52,13 @@ public enum CustomToastType {
 //        case .none: return .clear
 //        }
 //    }
-}
+//}
 
 class CustomToastView: UIView {
     
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var toastMessageLabel: UILabel!
     @IBOutlet private weak var actionLabel: UILabel!
-    
-    private var type: CustomToastType = .simple
     
     var toastTappedNotification: () -> () = {}
     
@@ -71,17 +69,8 @@ class CustomToastView: UIView {
     }
     
     private func setUI() {
-//        toastMessageLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
-//        actionLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-//
         let gesture = UITapGestureRecognizer(target: self, action: #selector(toastTapped))
         containerView.addGestureRecognizer(gesture)
-    }
-    
-    func config(type: CustomToastType) {
-        self.type = type
-        
-        containerView.backgroundColor = .magenta
     }
     
     func configToast(data: ToastData) {
@@ -90,30 +79,30 @@ class CustomToastView: UIView {
         } else {
             containerView.layer.cornerRadius = data.toastHeight/2
         }
-        type = data.type
     
         containerView.backgroundColor = data.backgroundColor
         
         toastMessageLabel.textColor = data.textColor
         toastMessageLabel.text = data.title
         toastMessageLabel.font = data.font
+        toastMessageLabel.textAlignment = data.textAlignment
         
         actionLabel.textColor = data.actionTextColor
         actionLabel.text = data.actionText
         
-        hideAction(for: type)
+       // hideAction(for: type)
     }
     
-    private func hideAction(for type: CustomToastType) {
-        switch type {
-        case .simple:
-            actionLabel.isHidden = true
-            toastMessageLabel.textAlignment = .center
-        case .action:
-            actionLabel.isHidden = false
-            toastMessageLabel.textAlignment = .left
-        }
-    }
+//    private func hideAction(for type: CustomToastType) {
+//        switch type {
+//        case .simple:
+//            actionLabel.isHidden = true
+//            toastMessageLabel.textAlignment = .center
+//        case .action:
+//            actionLabel.isHidden = false
+//            toastMessageLabel.textAlignment = .left
+//        }
+//    }
     
     @objc private func toastTapped() {
         toastTappedNotification()

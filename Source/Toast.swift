@@ -41,13 +41,18 @@ public class Toast {
         /// simple -> only text
         /// action -> shows an action at the right
         /// Simple by default
-        public func type(_ type: CustomToastType) -> Builder {
-            data.type = type
-            return self
-        }
+//        public func type(_ type: CustomToastType) -> Builder {
+//            data.type = type
+//            return self
+//        }
         
         public func showRightAction() -> Builder {
             data.showRightAction = true
+            return self
+        }
+        
+        public func textAlignment(_ textAlignment: NSTextAlignment) -> Builder {
+            data.textAlignment = textAlignment
             return self
         }
         

@@ -23,7 +23,6 @@ class ViewController: UIViewController {
     
     @IBAction func bottomToTopTapped(_ sender: Any) {
         Toast.Builder()
-            .type(.simple)
             .font(UIFont.systemFont(ofSize: 12, weight: .medium))
             .backgroundColor(.blue)
             .textColor(.white)
@@ -33,10 +32,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func topToBottomTapped(_ sender: Any) {
-        //        showToast(with: ToastData())
-        
         Toast.Builder()
-            .type(.simple)
             .font(UIFont.systemFont(ofSize: 12, weight: .medium))
             .backgroundColor(.magenta)
             .textColor(.white)
@@ -49,7 +45,6 @@ class ViewController: UIViewController {
     
     @IBAction func leftToRightTapped(_ sender: Any) {
         Toast.Builder()
-            .type(.simple)
             .font(UIFont.systemFont(ofSize: 18, weight: .medium))
             .backgroundColor(.customRed)
             .textColor(.white)
@@ -63,7 +58,6 @@ class ViewController: UIViewController {
     
     @IBAction func rightToLeftTapped(_ sender: Any) {
         Toast.Builder()
-            .type(.simple)
             .font(UIFont.systemFont(ofSize: 18, weight: .semibold))
             .backgroundColor(.success)
             .textColor(.white)
@@ -77,26 +71,26 @@ class ViewController: UIViewController {
     
     @IBAction func fadeInTapped(_ sender: Any) {
         Toast.Builder()
-            .type(.simple)
             .font(UIFont.systemFont(ofSize: 12, weight: .medium))
             .backgroundColor(.brown)
             .textColor(.white)
             .title("Soy un toast!")
             .verticalPosition(500)
             .orientation(.fadeIn)
+            .textAlignment(.left)
             .build()
             .show(viewController: self)
     }
     
     @IBAction func fadeOutTapped(_ sender: Any) {
         Toast.Builder()
-            .type(.simple)
             .font(UIFont.systemFont(ofSize: 12, weight: .medium))
             .backgroundColor(.orange)
             .textColor(.white)
             .title("Soy un toast!")
             .orientation(.fadeOut)
             .verticalPosition(400)
+            .textAlignment(.right)
             .build()
             .show(viewController: self)
     }
