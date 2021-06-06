@@ -52,7 +52,6 @@ class ViewController: UIViewController {
                 print("UNDO action tapped")
             }
             //.show(on: self)
-        
     }
     
     @IBAction func leftToRightTapped(_ sender: Any) {
