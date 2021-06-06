@@ -60,11 +60,13 @@ extension UIViewController {
             configureFadeIn(customToastView: customToastView,
                             toastHeight: toastData.toastHeight,
                             defaultDistance: toastData.defaultDistance,
+                            timeDismissal: toastData.timeDismissal,
                             verticalPosition: toastData.verticalPosition)
         case .fadeOut:
             configureFadeOut(customToastView: customToastView,
                              toastHeight: toastData.toastHeight,
                              defaultDistance: toastData.defaultDistance,
+                             timeDismissal: toastData.timeDismissal,
                              verticalPosition: toastData.verticalPosition)
         }
     }
@@ -227,6 +229,7 @@ extension UIViewController {
     fileprivate func configureFadeIn(customToastView: CustomToastView,
                                      toastHeight: CGFloat,
                                      defaultDistance: CGFloat,
+                                     timeDismissal: Double,
                                      verticalPosition: CGFloat) {
         NSLayoutConstraint.activate([
             customToastView.heightAnchor.constraint(equalToConstant: toastHeight),
@@ -235,32 +238,32 @@ extension UIViewController {
             customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -verticalPosition),
         ])
         
-        // Fade out to set the text
         customToastView.alpha = 0.0
-        UIView.animate(withDuration: 1.0, delay: 0.2, animations: {
-        }, completion: {
-            (finished: Bool) -> Void in
-            // Fade in
-            UIView.animate(withDuration: 1.0, delay: 0.1, options: .curveEaseIn, animations: {
-                customToastView.alpha = 1.0
-            }) { isFinished in
-                if finished {
-                    UIView.animate(withDuration: 4.0,
-                                   delay: 0.1,
-                                   options: [.curveEaseOut],
-                                   animations: {
-                                    customToastView.alpha = 0.0
-                                   }, completion: {(isCompleted) in
-                                    customToastView.removeFromSuperview()
-                                   })
-                }
+        // Fade in
+        UIView.animate(withDuration: 1.0, delay: 0.1, options: .curveEaseIn, animations: {
+            customToastView.alpha = 1.0
+        }) { isFinished in
+            if isFinished {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeDismissal,
+                                              execute: {
+                                                UIView.animate(withDuration: 3.0,
+                                                               delay: 0.1,
+                                                               options: [.curveEaseOut],
+                                                               animations: {
+                                                                customToastView.alpha = 0.0
+                                                               }, completion: {(isCompleted) in
+                                                                customToastView.removeFromSuperview()
+                                                               })
+                                                
+                                              })
             }
-        })
+        }
     }
     
     fileprivate func configureFadeOut(customToastView: CustomToastView,
                                       toastHeight: CGFloat,
                                       defaultDistance: CGFloat,
+                                      timeDismissal: Double,
                                       verticalPosition: CGFloat) {
         NSLayoutConstraint.activate([
             customToastView.heightAnchor.constraint(equalToConstant: toastHeight),
@@ -275,7 +278,10 @@ extension UIViewController {
                        animations: {
                         customToastView.alpha = 0.0
                        }, completion: {(isCompleted) in
-                        customToastView.removeFromSuperview()
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeDismissal,
+                                                      execute: {
+                                                        customToastView.removeFromSuperview()
+                                                      })
                        })
     }
 }

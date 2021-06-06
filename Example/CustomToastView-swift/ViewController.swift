@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     
     @IBAction func fadeInTapped(_ sender: Any) {
         Toast.Builder()
-            .font(UIFont.systemFont(ofSize: 12, weight: .medium))
+            .font(UIFont.systemFont(ofSize: 12, weight: .semibold))
             .backgroundColor(.brown)
             .textColor(.white)
             .title("Soy un toast!")
@@ -84,13 +84,14 @@ class ViewController: UIViewController {
     
     @IBAction func fadeOutTapped(_ sender: Any) {
         Toast.Builder()
-            .font(UIFont.systemFont(ofSize: 12, weight: .medium))
+            .font(UIFont.systemFont(ofSize: 12, weight: .semibold))
             .backgroundColor(.orange)
             .textColor(.white)
             .title("Soy un toast!")
             .orientation(.fadeOut)
             .verticalPosition(400)
             .textAlignment(.right)
+            .timeDismissal(1)
             .build()
             .show(viewController: self)
     }
