@@ -15,6 +15,7 @@ public class CustomToastView: UIView {
     @IBOutlet private weak var leftIconImageView: UIImageView!
     
     var toastTappedNotification: () -> () = {}
+    var actionTappedNotification: () -> () = {}
     
     private var toastData: ToastData?
     public var constraint: NSLayoutConstraint?
@@ -29,6 +30,9 @@ public class CustomToastView: UIView {
     private func setUI() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(toastTapped))
         containerView.addGestureRecognizer(gesture)
+        
+        let gestureLabel = UITapGestureRecognizer(target: self, action: #selector(actionLabelTapped))
+        actionLabel.addGestureRecognizer(gestureLabel)
     }
     
     func set(constraint: NSLayoutConstraint,
@@ -65,6 +69,7 @@ public class CustomToastView: UIView {
         if let rightActionLabel = data.rightActionLabel {
             actionLabel.text = rightActionLabel
             toastMessageLabel.textAlignment = .left
+            actionLabel.isUserInteractionEnabled = true
         }
         actionLabel.isHidden = data.rightActionLabel == nil
         
@@ -73,6 +78,10 @@ public class CustomToastView: UIView {
     
     @objc private func toastTapped() {
         toastTappedNotification()
+    }
+    
+    @objc private func actionLabelTapped() {
+        actionTappedNotification()
     }
     
     public func hide() {

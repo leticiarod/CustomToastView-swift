@@ -23,11 +23,13 @@ public class Toast {
     }
     
     public func show(on viewController: UIViewController,
-                   completion: @escaping (CustomToastView) -> () = {_ in}) {
-        CustomToastView.showToast(with: data,
-                  viewController: viewController) { toast in
+                     completion: @escaping (CustomToastView) -> () = {_ in},
+                     actionCompletion: @escaping () -> () = {}) {
+        CustomToastView.showToast(with: data, viewController: viewController, completion: { toast in
             completion(toast)
-        }
+        }, actionCompletion: {
+            actionCompletion()
+        })
     }
     
     public class Builder {
@@ -85,7 +87,7 @@ public class Toast {
             return self
         }
         
-        // shouldDismissAfterPresenting is false by default
+        /// shouldDismissAfterPresenting is false by default
         public func shouldDismissAfterPresenting(_ shouldDismissAfterPresenting: Bool) -> Builder {
             data.shouldDismissAfterPresenting = shouldDismissAfterPresenting
             return self

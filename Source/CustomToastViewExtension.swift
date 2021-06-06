@@ -11,7 +11,8 @@ extension CustomToastView {
     
     public static func showToast(with toastData: ToastData,
                                  viewController: UIViewController,
-                                 completion: @escaping (CustomToastView) -> () = {_ in}) {
+                                 completion: @escaping (CustomToastView) -> () = {_ in},
+                                 actionCompletion: @escaping () -> () = {}) {
         
         let bundle = Bundle(for: CustomToastView.self)
         
@@ -22,6 +23,10 @@ extension CustomToastView {
         
         customToastView.toastTappedNotification = {
             completion(customToastView)
+        }
+        
+        customToastView.actionTappedNotification = {
+            actionCompletion()
         }
         
         customToastView.configToast(data: toastData)

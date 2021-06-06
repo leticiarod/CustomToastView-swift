@@ -22,7 +22,7 @@ public struct ToastData {
     var toastHeight: CGFloat = 54
     var defaultDistance: CGFloat = 16
     var cornerRadius: CGFloat? = nil
-    var timeDismissal = 0.5 // TODO: ver diferencia
+    var timeDismissal = 0.5
     var verticalPosition: CGFloat = 54
     var shouldDismissAfterPresenting = true
     var textAlignment: NSTextAlignment = .center

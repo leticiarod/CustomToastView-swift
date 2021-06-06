@@ -46,7 +46,12 @@ class ViewController: UIViewController {
             .actionFont(UIFont.systemFont(ofSize: 12, weight: .medium))
             .actionTextColor(.white)
             .build()
-            .show(on: self)
+            .show(on: self) { toast in
+                toast.hide()
+            } actionCompletion: {
+                print("UNDO action tapped")
+            }
+            //.show(on: self)
         
     }
     

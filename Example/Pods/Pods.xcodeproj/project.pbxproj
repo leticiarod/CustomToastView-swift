@@ -184,9 +184,9 @@
 		9754A6F72663D6D4007D83F7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				9754A5DE2663313B007D83F7 /* CustomToastViewExtension.swift */,
 				9754A5DC2663313B007D83F7 /* CustomToastView.swift */,
 				9754A5DA2663313B007D83F7 /* CustomToastView.xib */,
+				9754A5DE2663313B007D83F7 /* CustomToastViewExtension.swift */,
 				9754A5DB2663313B007D83F7 /* NSObjectExtension.swift */,
 				978048D326657811009B00D7 /* ToastData.swift */,
 				978048D82665782D009B00D7 /* Toast.swift */,
