@@ -60,11 +60,13 @@ class ViewController: UIViewController {
         Toast.Builder()
             .font(UIFont.systemFont(ofSize: 18, weight: .semibold))
             .backgroundColor(.success)
+            .showLeftIcon(UIImage(named: "check"))
             .textColor(.white)
             .title("Possible success message!")
             .verticalPosition(600)
             .toastHeight(80)
             .orientation(.rightToLeft)
+            .textAlignment(.left)
             .build()
             .show(viewController: self)
     }

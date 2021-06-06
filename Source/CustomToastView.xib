@@ -17,25 +17,36 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vX-7J-nK3">
                     <rect key="frame" x="0.0" y="0.0" width="406" height="46"/>
                     <subviews>
-                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdq-Fn-gbo">
-                            <rect key="frame" x="20" y="12.5" width="366" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDP-5C-5Bl">
-                            <rect key="frame" x="344" y="12.5" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Fs-7k-7YB">
+                            <rect key="frame" x="20" y="0.0" width="366" height="46"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gtn-d9-cqf">
+                                    <rect key="frame" x="0.0" y="0.0" width="20" height="46"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="43S-MP-BJm"/>
+                                        <constraint firstAttribute="height" constant="20" id="UNT-Vp-iJI"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdq-Fn-gbo">
+                                    <rect key="frame" x="30" y="0.0" width="336" height="46"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label hidden="YES" opaque="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDP-5C-5Bl">
+                                    <rect key="frame" x="366" y="0.0" width="0.0" height="46"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Cdq-Fn-gbo" secondAttribute="trailing" constant="20" id="KIB-FW-n3e"/>
-                        <constraint firstAttribute="trailing" secondItem="UDP-5C-5Bl" secondAttribute="trailing" constant="20" id="Nd1-lj-aEK"/>
-                        <constraint firstItem="Cdq-Fn-gbo" firstAttribute="centerY" secondItem="2vX-7J-nK3" secondAttribute="centerY" id="Ycu-yX-i6s"/>
-                        <constraint firstItem="Cdq-Fn-gbo" firstAttribute="leading" secondItem="2vX-7J-nK3" secondAttribute="leading" constant="20" id="cSI-eU-OVO"/>
-                        <constraint firstItem="UDP-5C-5Bl" firstAttribute="centerY" secondItem="2vX-7J-nK3" secondAttribute="centerY" id="rLw-hX-3lf"/>
+                        <constraint firstItem="2Fs-7k-7YB" firstAttribute="top" secondItem="2vX-7J-nK3" secondAttribute="top" id="3HF-8O-X9d"/>
+                        <constraint firstItem="2Fs-7k-7YB" firstAttribute="leading" secondItem="2vX-7J-nK3" secondAttribute="leading" constant="20" id="dk2-Oe-Ywx"/>
+                        <constraint firstAttribute="trailing" secondItem="2Fs-7k-7YB" secondAttribute="trailing" constant="20" id="iHG-GS-duU"/>
+                        <constraint firstAttribute="bottom" secondItem="2Fs-7k-7YB" secondAttribute="bottom" id="jYD-Ge-NNR"/>
                     </constraints>
                 </view>
             </subviews>
@@ -50,6 +61,7 @@
             <connections>
                 <outlet property="actionLabel" destination="UDP-5C-5Bl" id="wIu-eC-pcU"/>
                 <outlet property="containerView" destination="2vX-7J-nK3" id="5Zf-iC-N6J"/>
+                <outlet property="leftIconImageView" destination="gtn-d9-cqf" id="9co-Jk-wdm"/>
                 <outlet property="toastMessageLabel" destination="Cdq-Fn-gbo" id="kld-ao-pgj"/>
             </connections>
             <point key="canvasLocation" x="71.014492753623188" y="-204.91071428571428"/>

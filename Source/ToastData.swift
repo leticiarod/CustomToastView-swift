@@ -18,7 +18,7 @@ public struct ToastData {
                                        weight: .regular)
     var orientation: ToastOrientation = .bottomToTop
     var showRightAction = false
-    var showLeftIcon = false
+    var leftIconImage: UIImage? = nil
     var toastHeight: CGFloat = 54
     var defaultDistance: CGFloat = 16
     var cornerRadius: CGFloat? = nil
@@ -26,6 +26,7 @@ public struct ToastData {
     var verticalPosition: CGFloat = 54
     var shouldDismissAfterPresenting = false
     var textAlignment: NSTextAlignment = .center
+    var leftIconImageContentMode: UIViewContentMode = .scaleAspectFit
     
     public init() {
         

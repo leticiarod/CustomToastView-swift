@@ -57,8 +57,13 @@ public class Toast {
             return self
         }
         
-        public func showLeftIcon() -> Builder {
-            data.showLeftIcon = true
+        public func showLeftIcon(_ image: UIImage?) -> Builder {
+            data.leftIconImage = image
+            return self
+        }
+        
+        public func letIconContentMode(_ letIconContentMode: UIViewContentMode) -> Builder {
+            data.leftIconImageContentMode = letIconContentMode
             return self
         }
         

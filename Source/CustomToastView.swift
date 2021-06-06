@@ -59,6 +59,7 @@ class CustomToastView: UIView {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var toastMessageLabel: UILabel!
     @IBOutlet private weak var actionLabel: UILabel!
+    @IBOutlet private weak var leftIconImageView: UIImageView!
     
     var toastTappedNotification: () -> () = {}
     
@@ -90,6 +91,14 @@ class CustomToastView: UIView {
         actionLabel.textColor = data.actionTextColor
         actionLabel.text = data.actionText
         
+        if let leftIconImage = data.leftIconImage {
+            leftIconImageView.image = leftIconImage
+        }
+        leftIconImageView.isHidden = data.leftIconImage == nil
+        
+        leftIconImageView.contentMode = data.leftIconImageContentMode
+        
+        actionLabel.isHidden = !data.showRightAction
        // hideAction(for: type)
     }
     
