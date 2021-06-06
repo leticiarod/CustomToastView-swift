@@ -235,13 +235,26 @@ extension UIViewController {
             customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -verticalPosition),
         ])
         
-        UIView.animate(withDuration: 4.0,
-                       delay: 0.1,
-                       options: .curveEaseIn,
-                       animations: {
-            customToastView.alpha = 0.0
-        }, completion: {(isCompleted) in
-            customToastView.removeFromSuperview()
+        // Fade out to set the text
+        customToastView.alpha = 0.0
+        UIView.animate(withDuration: 1.0, delay: 0.2, animations: {
+        }, completion: {
+            (finished: Bool) -> Void in
+            // Fade in
+            UIView.animate(withDuration: 1.0, delay: 0.1, options: .curveEaseIn, animations: {
+                customToastView.alpha = 1.0
+            }) { isFinished in
+                if finished {
+                    UIView.animate(withDuration: 4.0,
+                                   delay: 0.1,
+                                   options: [.curveEaseOut],
+                                   animations: {
+                                    customToastView.alpha = 0.0
+                                   }, completion: {(isCompleted) in
+                                    customToastView.removeFromSuperview()
+                                   })
+                }
+            }
         })
     }
     
@@ -260,9 +273,9 @@ extension UIViewController {
                        delay: 0.1,
                        options: .curveEaseOut,
                        animations: {
-            customToastView.alpha = 0.0
-        }, completion: {(isCompleted) in
-            customToastView.removeFromSuperview()
-        })
+                        customToastView.alpha = 0.0
+                       }, completion: {(isCompleted) in
+                        customToastView.removeFromSuperview()
+                       })
     }
 }
