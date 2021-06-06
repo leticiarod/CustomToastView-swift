@@ -46,6 +46,7 @@ public class Toast {
 //            return self
 //        }
         
+        /// Show Toast right action
         public func showRightAction() -> Builder {
             data.showRightAction = true
             return self
