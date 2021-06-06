@@ -17,7 +17,7 @@ public struct ToastData {
     var actionFont = UIFont.systemFont(ofSize: 14,
                                        weight: .regular)
     var orientation: ToastOrientation = .bottomToTop
-    var showRightAction = false
+    var rightActionLabel: String? = nil
     var leftIconImage: UIImage? = nil
     var toastHeight: CGFloat = 54
     var defaultDistance: CGFloat = 16

@@ -7,54 +7,7 @@
 
 import UIKit
 
-/// Simple has no action at the right
-/// Action has an action at the right
-
-//public enum CustomToastType {
-//    case simple
-//    case action
-    
-//    func title() -> String {
-//        switch self {
-//        case .favorite: return Localized("custom_toast_favorite")
-//        case .unfavorite: return Localized("custom_toast_unfavorite")
-//        case .log: return Localized("custom_toast_log")
-//        case .unlog: return Localized("custom_toast_unlog")
-//        case .itemDelete: return Localized("custom_toast_item_deleted")
-//            case .outfitDelete: return Localized("custom_toast_outfit_deleted")
-//        case .unableDeleteOutfit: return Localized("custom_toast_unable_to_delete_outfit")
-//        case .unableDeleteItem: return Localized("custom_toast_unable_to_delete")
-//        case .unableToFavorite: return Localized("custom_toast_unable_to_favorite_item")
-//        case .none: return ""
-//        }
-//    }
-//
-//    func actionsText() -> String {
-//        switch self {
-//        case .favorite, .unfavorite, .log, .unlog, .itemDelete, .outfitDelete: return Localized("custom_toast_undo")
-//        case .unableDeleteOutfit, .unableDeleteItem, .unableToFavorite: return Localized("custom_toast_retry")
-//        case .none: return ""
-//        }
-//    }
-    
-//    func backgroundColor() -> UIColor {
-//        switch self {
-//        case .favorite, .unfavorite, .log, .unlog, .itemDelete, .outfitDelete: return UIColor.CustomToast.educational
-//        case .unableDeleteItem, .unableDeleteOutfit, .unableToFavorite: return UIColor.CustomToast.error
-//        case .none: return .clear
-//        }
-//    }
-//
-//    func textColor() -> UIColor {
-//        switch self {
-//        case .favorite, .unfavorite, .log, .unlog, .itemDelete, .outfitDelete: return UIColor.CustomToast.educationalText
-//        case .unableDeleteItem, .unableDeleteOutfit, .unableToFavorite: return UIColor.CustomToast.errorText
-//        case .none: return .clear
-//        }
-//    }
-//}
-
-class CustomToastView: UIView {
+public class CustomToastView: UIView {
     
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var toastMessageLabel: UILabel!
@@ -63,7 +16,7 @@ class CustomToastView: UIView {
     
     var toastTappedNotification: () -> () = {}
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         
         setUI()
@@ -80,7 +33,7 @@ class CustomToastView: UIView {
         } else {
             containerView.layer.cornerRadius = data.toastHeight/2
         }
-    
+        
         containerView.backgroundColor = data.backgroundColor
         
         toastMessageLabel.textColor = data.textColor
@@ -90,6 +43,7 @@ class CustomToastView: UIView {
         
         actionLabel.textColor = data.actionTextColor
         actionLabel.text = data.actionText
+        actionLabel.font = data.actionFont
         
         if let leftIconImage = data.leftIconImage {
             leftIconImageView.image = leftIconImage
@@ -98,20 +52,12 @@ class CustomToastView: UIView {
         
         leftIconImageView.contentMode = data.leftIconImageContentMode
         
-        actionLabel.isHidden = !data.showRightAction
-       // hideAction(for: type)
+        if let rightActionLabel = data.rightActionLabel {
+            actionLabel.text = rightActionLabel
+            toastMessageLabel.textAlignment = .left
+        }
+        actionLabel.isHidden = data.rightActionLabel == nil
     }
-    
-//    private func hideAction(for type: CustomToastType) {
-//        switch type {
-//        case .simple:
-//            actionLabel.isHidden = true
-//            toastMessageLabel.textAlignment = .center
-//        case .action:
-//            actionLabel.isHidden = false
-//            toastMessageLabel.textAlignment = .left
-//        }
-//    }
     
     @objc private func toastTapped() {
         toastTappedNotification()

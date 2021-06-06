@@ -8,8 +8,9 @@
 import UIKit
 
 extension UIViewController {
+    
     public func showToast(with toastData: ToastData,
-                          completion: @escaping () -> () = {}) {
+                          completion: @escaping (CustomToastView) -> () = {_ in}) {
         let bundle = Bundle(for: CustomToastView.self)
         
         guard let customToastView = bundle.loadNibNamed(CustomToastView.className, owner: self, options: nil)?.first as? CustomToastView else {
@@ -18,7 +19,7 @@ extension UIViewController {
         }
         
         customToastView.toastTappedNotification = {
-            completion()
+            completion(customToastView)
         }
         
         customToastView.configToast(data: toastData)

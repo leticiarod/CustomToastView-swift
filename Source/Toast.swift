@@ -23,9 +23,9 @@ public class Toast {
     }
     
     public func show(viewController: UIViewController,
-                   completion: @escaping () -> () = {}) {
-        viewController.showToast(with: data) {
-            completion()
+                   completion: @escaping (CustomToastView) -> () = {_ in}) {
+        viewController.showToast(with: data) { toast in
+            completion(toast)
         }
     }
     
@@ -47,8 +47,8 @@ public class Toast {
 //        }
         
         /// Show Toast right action
-        public func showRightAction() -> Builder {
-            data.showRightAction = true
+        public func rightActionLabel(_ rightActionLabel: String) -> Builder {
+            data.rightActionLabel = rightActionLabel
             return self
         }
         
