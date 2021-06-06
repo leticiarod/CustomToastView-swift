@@ -27,8 +27,12 @@ class ViewController: UIViewController {
             .backgroundColor(.blue)
             .textColor(.white)
             .title("Hello! I'm a toast")
+            .shouldDismissAfterPresenting(false)
             .build()
-            .show(viewController: self)
+            .show(on: self) { toast in
+                toast.hide()
+            }
+            //.show(on: self)
     }
     
     @IBAction func topToBottomTapped(_ sender: Any) {
@@ -42,7 +46,7 @@ class ViewController: UIViewController {
             .actionFont(UIFont.systemFont(ofSize: 12, weight: .medium))
             .actionTextColor(.white)
             .build()
-            .show(viewController: self)
+            .show(on: self)
         
     }
     
@@ -56,7 +60,7 @@ class ViewController: UIViewController {
             .verticalPosition(150)
             .toastHeight(100)
             .build()
-            .show(viewController: self)
+            .show(on: self)
     }
     
     @IBAction func rightToLeftTapped(_ sender: Any) {
@@ -71,7 +75,7 @@ class ViewController: UIViewController {
             .orientation(.rightToLeft)
             .textAlignment(.left)
             .build()
-            .show(viewController: self)
+            .show(on: self)
     }
     
     @IBAction func fadeInTapped(_ sender: Any) {
@@ -83,8 +87,12 @@ class ViewController: UIViewController {
             .verticalPosition(500)
             .orientation(.fadeIn)
             .textAlignment(.left)
+            //.shouldDismissAfterPresenting(false)
             .build()
-            .show(viewController: self)
+//            .show(on: self) { toast in
+//                toast.hide()
+//            }
+            .show(on: self)
     }
     
     @IBAction func fadeOutTapped(_ sender: Any) {
@@ -97,8 +105,12 @@ class ViewController: UIViewController {
             .verticalPosition(400)
             .textAlignment(.right)
             .timeDismissal(1)
+            //.shouldDismissAfterPresenting(false)
             .build()
-            .show(viewController: self)
+//            .show(on: self) { toast in
+//                toast.hide()
+//            }
+            .show(on: self)
     }
 }
 

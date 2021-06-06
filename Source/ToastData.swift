@@ -24,7 +24,7 @@ public struct ToastData {
     var cornerRadius: CGFloat? = nil
     var timeDismissal = 0.5 // TODO: ver diferencia
     var verticalPosition: CGFloat = 54
-    var shouldDismissAfterPresenting = false
+    var shouldDismissAfterPresenting = true
     var textAlignment: NSTextAlignment = .center
     var leftIconImageContentMode: UIViewContentMode = .scaleAspectFit
     

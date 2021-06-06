@@ -18,7 +18,7 @@
 		9754A5DF2663313B007D83F7 /* CustomToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9754A5DA2663313B007D83F7 /* CustomToastView.xib */; };
 		9754A5E02663313B007D83F7 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9754A5DB2663313B007D83F7 /* NSObjectExtension.swift */; };
 		9754A5E12663313B007D83F7 /* CustomToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9754A5DC2663313B007D83F7 /* CustomToastView.swift */; };
-		9754A5E32663313B007D83F7 /* UIViewControlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9754A5DE2663313B007D83F7 /* UIViewControlerExtension.swift */; };
+		9754A5E32663313B007D83F7 /* CustomToastViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9754A5DE2663313B007D83F7 /* CustomToastViewExtension.swift */; };
 		978048D426657811009B00D7 /* ToastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978048D326657811009B00D7 /* ToastData.swift */; };
 		978048D92665782D009B00D7 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978048D82665782D009B00D7 /* Toast.swift */; };
 		B2DE07FAF7B93B0F1C5030480B2EC7AC /* Pods-CustomToastView-swift_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 29951F810388CBBCB0EF74AF4914E5DA /* Pods-CustomToastView-swift_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,7 +65,7 @@
 		9754A5DA2663313B007D83F7 /* CustomToastView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomToastView.xib; sourceTree = "<group>"; };
 		9754A5DB2663313B007D83F7 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		9754A5DC2663313B007D83F7 /* CustomToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomToastView.swift; sourceTree = "<group>"; };
-		9754A5DE2663313B007D83F7 /* UIViewControlerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControlerExtension.swift; sourceTree = "<group>"; };
+		9754A5DE2663313B007D83F7 /* CustomToastViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomToastViewExtension.swift; sourceTree = "<group>"; };
 		978048D326657811009B00D7 /* ToastData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastData.swift; sourceTree = "<group>"; };
 		978048D82665782D009B00D7 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -184,7 +184,7 @@
 		9754A6F72663D6D4007D83F7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				9754A5DE2663313B007D83F7 /* UIViewControlerExtension.swift */,
+				9754A5DE2663313B007D83F7 /* CustomToastViewExtension.swift */,
 				9754A5DC2663313B007D83F7 /* CustomToastView.swift */,
 				9754A5DA2663313B007D83F7 /* CustomToastView.xib */,
 				9754A5DB2663313B007D83F7 /* NSObjectExtension.swift */,
@@ -396,7 +396,7 @@
 				9754A5E12663313B007D83F7 /* CustomToastView.swift in Sources */,
 				978048D426657811009B00D7 /* ToastData.swift in Sources */,
 				9754A5E02663313B007D83F7 /* NSObjectExtension.swift in Sources */,
-				9754A5E32663313B007D83F7 /* UIViewControlerExtension.swift in Sources */,
+				9754A5E32663313B007D83F7 /* CustomToastViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

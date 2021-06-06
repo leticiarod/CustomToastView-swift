@@ -22,9 +22,10 @@ public class Toast {
         self.data = data
     }
     
-    public func show(viewController: UIViewController,
+    public func show(on viewController: UIViewController,
                    completion: @escaping (CustomToastView) -> () = {_ in}) {
-        viewController.showToast(with: data) { toast in
+        CustomToastView.showToast(with: data,
+                  viewController: viewController) { toast in
             completion(toast)
         }
     }
@@ -36,15 +37,6 @@ public class Toast {
         }
         
         private var data: ToastData = ToastData()
-        
-        /// Toast message type
-        /// simple -> only text
-        /// action -> shows an action at the right
-        /// Simple by default
-//        public func type(_ type: CustomToastType) -> Builder {
-//            data.type = type
-//            return self
-//        }
         
         /// Show Toast right action
         public func rightActionLabel(_ rightActionLabel: String) -> Builder {

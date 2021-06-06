@@ -16,6 +16,10 @@ public class CustomToastView: UIView {
     
     var toastTappedNotification: () -> () = {}
     
+    private var toastData: ToastData?
+    public var constraint: NSLayoutConstraint?
+    public var viewController: UIViewController?
+    
     override public func awakeFromNib() {
         super.awakeFromNib()
         
@@ -25,6 +29,12 @@ public class CustomToastView: UIView {
     private func setUI() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(toastTapped))
         containerView.addGestureRecognizer(gesture)
+    }
+    
+    func set(constraint: NSLayoutConstraint,
+             viewController: UIViewController) {
+        self.constraint = constraint
+        self.viewController = viewController
     }
     
     func configToast(data: ToastData) {
@@ -57,9 +67,64 @@ public class CustomToastView: UIView {
             toastMessageLabel.textAlignment = .left
         }
         actionLabel.isHidden = data.rightActionLabel == nil
+        
+        toastData = data
     }
     
     @objc private func toastTapped() {
         toastTappedNotification()
+    }
+    
+    public func hide() {
+        guard let toastData = self.toastData else { return }
+        self.hideByOrientation()
+        UIView.animate(withDuration: toastData.timeDismissal) {
+            self.viewController?.view.setNeedsLayout()
+            self.viewController?.view.layoutIfNeeded()
+        }
+    }
+    
+    private func hideByOrientation() {
+        guard let toastData = self.toastData else { return }
+        switch toastData.orientation {
+        case .bottomToTop:
+            self.constraint?.constant = toastData.toastHeight
+        case .topToBottom:
+            self.constraint?.constant = -toastData.toastHeight
+        case .leftToRight:
+            self.constraint?.constant = -UIScreen.main.bounds.width
+        case .rightToLeft:
+            self.constraint?.constant = UIScreen.main.bounds.width
+        case .fadeIn: dismissFadeIn()
+        case .fadeOut: dismissFadeOut()
+        }
+    }
+    
+    private func dismissFadeIn() {
+        UIView.animate(withDuration: 3.0,
+                       delay: 0.1,
+                       options: [.curveEaseOut],
+                       animations: {
+                        self.alpha = 0.0
+                       }, completion: {(isCompleted) in
+                        self.removeFromSuperview()
+                       })
+    }
+    
+    private func dismissFadeOut() {
+        UIView.animate(withDuration: 3.0,
+                       delay: 0.1,
+                       options: .curveEaseOut,
+                       animations: {
+                        self.alpha = 0.0
+                       }, completion: {(isCompleted) in
+                        
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + (self.toastData?.timeDismissal ?? 0.0),
+                                                      execute: {
+                                                        self.removeFromSuperview()
+                                                      })
+                        
+                        
+                       })
     }
 }
