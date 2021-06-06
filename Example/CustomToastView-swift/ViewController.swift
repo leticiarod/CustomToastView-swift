@@ -50,11 +50,13 @@ class ViewController: UIViewController {
     @IBAction func leftToRightTapped(_ sender: Any) {
         Toast.Builder()
             .type(.simple)
-            .font(UIFont.systemFont(ofSize: 12, weight: .medium))
-            .backgroundColor(.cyan)
+            .font(UIFont.systemFont(ofSize: 18, weight: .medium))
+            .backgroundColor(.customRed)
             .textColor(.white)
-            .title("Soy un toast!")
+            .title("Possible error message!")
             .orientation(.leftToRight)
+            .verticalPosition(150)
+            .toastHeight(100)
             .build()
             .show(viewController: self)
     }
@@ -62,10 +64,12 @@ class ViewController: UIViewController {
     @IBAction func rightToLeftTapped(_ sender: Any) {
         Toast.Builder()
             .type(.simple)
-            .font(UIFont.systemFont(ofSize: 12, weight: .medium))
-            .backgroundColor(.magenta)
+            .font(UIFont.systemFont(ofSize: 18, weight: .semibold))
+            .backgroundColor(.success)
             .textColor(.white)
-            .title("Soy un toast!")
+            .title("Possible success message!")
+            .verticalPosition(600)
+            .toastHeight(80)
             .orientation(.rightToLeft)
             .build()
             .show(viewController: self)
@@ -75,9 +79,10 @@ class ViewController: UIViewController {
         Toast.Builder()
             .type(.simple)
             .font(UIFont.systemFont(ofSize: 12, weight: .medium))
-            .backgroundColor(.magenta)
+            .backgroundColor(.brown)
             .textColor(.white)
             .title("Soy un toast!")
+            .verticalPosition(500)
             .orientation(.fadeIn)
             .build()
             .show(viewController: self)
@@ -87,12 +92,17 @@ class ViewController: UIViewController {
         Toast.Builder()
             .type(.simple)
             .font(UIFont.systemFont(ofSize: 12, weight: .medium))
-            .backgroundColor(.magenta)
+            .backgroundColor(.orange)
             .textColor(.white)
             .title("Soy un toast!")
             .orientation(.fadeOut)
+            .verticalPosition(400)
             .build()
             .show(viewController: self)
     }
 }
 
+extension UIColor {
+    static let customRed = UIColor(red: 1.00, green: 0.21, blue: 0.33, alpha: 1.00)
+    static let success = UIColor(red: 0.07, green: 0.74, blue: 0.22, alpha: 1.00)
+}

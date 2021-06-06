@@ -71,10 +71,9 @@ class CustomToastView: UIView {
     }
     
     private func setUI() {
-        containerView.layer.cornerRadius = 25
-        toastMessageLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
-        actionLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        
+//        toastMessageLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
+//        actionLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+//
         let gesture = UITapGestureRecognizer(target: self, action: #selector(toastTapped))
         containerView.addGestureRecognizer(gesture)
     }
@@ -86,9 +85,13 @@ class CustomToastView: UIView {
     }
     
     func configToast(data: ToastData) {
-        self.type = data.type
-        
-        
+        if let cornerRadius = data.cornerRadius {
+            containerView.layer.cornerRadius = cornerRadius
+        } else {
+            containerView.layer.cornerRadius = data.toastHeight/2
+        }
+        type = data.type
+    
         containerView.backgroundColor = data.backgroundColor
         
         toastMessageLabel.textColor = data.textColor

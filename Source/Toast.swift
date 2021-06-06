@@ -56,14 +56,37 @@ public class Toast {
             return self
         }
         
-//        let toastHeight: CGFloat = 54
-//        let defaultDistance: CGFloat = 16
+        public func toastHeight(_ toastHeight: CGFloat) -> Builder {
+            data.toastHeight = toastHeight
+            return self
+        }
         
-        // CORNER RADIUS
+        // TODO: cambiarle el nombre a esto, que se entienda que son los margenes laterales
+        public func defaultDistance(_ defaultDistance: CGFloat) -> Builder {
+            data.defaultDistance = defaultDistance
+            return self
+        }
         
-        // TIME DISMISSAL
+        public func verticalPosition(_ verticalPosition: CGFloat) -> Builder {
+            data.verticalPosition = verticalPosition
+            return self
+        }
         
-        // Do not dismiss
+        public func cornerRadius(_ cornerRadius: CGFloat) -> Builder {
+            data.cornerRadius = cornerRadius
+            return self
+        }
+        
+        public func timeDismissal(_ timeDismissal: Double) -> Builder {
+            data.timeDismissal = timeDismissal
+            return self
+        }
+        
+        // shouldDismissAfterPresenting is false by default
+        public func shouldDismissAfterPresenting(_ shouldDismissAfterPresenting: Bool) -> Builder {
+            data.shouldDismissAfterPresenting = shouldDismissAfterPresenting
+            return self
+        }
         
         public func orientation(_ orientation: ToastOrientation) -> Builder {
             data.orientation = orientation

@@ -17,8 +17,14 @@ public struct ToastData {
     var actionFont = UIFont.systemFont(ofSize: 14,
                                        weight: .regular)
     var orientation: ToastOrientation = .bottomToTop
-    var showRightAction: Bool = false
-    var showLeftIcon: Bool = false
+    var showRightAction = false
+    var showLeftIcon = false
+    var toastHeight: CGFloat = 54
+    var defaultDistance: CGFloat = 16
+    var cornerRadius: CGFloat? = nil
+    var timeDismissal = 0.5 // TODO: ver diferencia
+    var verticalPosition: CGFloat = 54
+    var shouldDismissAfterPresenting = false
     
     public init() {
         

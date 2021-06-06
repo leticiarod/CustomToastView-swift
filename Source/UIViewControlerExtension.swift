@@ -27,41 +27,57 @@ extension UIViewController {
         
         view.addSubview(customToastView)
         
-        let toastHeight: CGFloat = 54
-        let defaultDistance: CGFloat = 16
-        
         switch toastData.orientation {
         case .bottomToTop:
             configureFromBottomToTop(customToastView: customToastView,
-                                     toastHeight: toastHeight,
-                                     defaultDistance: defaultDistance)
+                                     toastHeight: toastData.toastHeight,
+                                     defaultDistance: toastData.defaultDistance,
+                                     timeDismissal: toastData.timeDismissal,
+                                     verticalPosition: toastData.verticalPosition,
+                                     shouldDismissAfterPresenting: toastData.shouldDismissAfterPresenting)
         case .topToBottom:
             configureFromTopToBottom(customToastView: customToastView,
-                                     toastHeight: toastHeight,
-                                     defaultDistance: defaultDistance)
+                                     toastHeight: toastData.toastHeight,
+                                     defaultDistance: toastData.defaultDistance,
+                                     timeDismissal: toastData.timeDismissal,
+                                     verticalPosition: toastData.verticalPosition,
+                                     shouldDismissAfterPresenting: toastData.shouldDismissAfterPresenting)
         case .leftToRight:
             configureFromLeftToRight(customToastView: customToastView,
-                                     toastHeight: toastHeight,
-                                     defaultDistance: defaultDistance)
+                                     toastHeight: toastData.toastHeight,
+                                     defaultDistance: toastData.defaultDistance,
+                                     timeDismissal: toastData.timeDismissal,
+                                     verticalPosition: toastData.verticalPosition,
+                                     shouldDismissAfterPresenting: toastData.shouldDismissAfterPresenting)
         case .rightToLeft:
             configureFromRightToLeft(customToastView: customToastView,
-                                     toastHeight: toastHeight,
-                                     defaultDistance: defaultDistance)
+                                     toastHeight: toastData.toastHeight,
+                                     defaultDistance: toastData.defaultDistance,
+                                     timeDismissal: toastData.timeDismissal,
+                                     verticalPosition: toastData.verticalPosition,
+                                     shouldDismissAfterPresenting: toastData.shouldDismissAfterPresenting)
         case .fadeIn:
             configureFadeIn(customToastView: customToastView,
-                            toastHeight: toastHeight,
-                            defaultDistance: defaultDistance)
+                            toastHeight: toastData.toastHeight,
+                            defaultDistance: toastData.defaultDistance,
+                            verticalPosition: toastData.verticalPosition)
         case .fadeOut:
             configureFadeOut(customToastView: customToastView,
-                             toastHeight: toastHeight,
-                             defaultDistance: defaultDistance)
+                             toastHeight: toastData.toastHeight,
+                             defaultDistance: toastData.defaultDistance,
+                             verticalPosition: toastData.verticalPosition)
         }
     }
     
+    // TODO: agregar el shouldDismissAfterPresenting al final
     fileprivate func configureFromBottomToTop(customToastView: CustomToastView,
                                               toastHeight: CGFloat,
-                                              defaultDistance: CGFloat) {
-        let bottomConstraint = customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: toastHeight )
+                                              defaultDistance: CGFloat,
+                                              timeDismissal: Double,
+                                              verticalPosition: CGFloat,
+                                              shouldDismissAfterPresenting: Bool) {
+        let bottomConstraint = customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                                                       constant: verticalPosition )
         
         NSLayoutConstraint.activate([
             customToastView.heightAnchor.constraint(equalToConstant: toastHeight),
@@ -73,7 +89,7 @@ extension UIViewController {
         view.setNeedsLayout()
         view.layoutIfNeeded()
         
-        bottomConstraint.constant = -(toastHeight + (tabBarController?.tabBar.frame.height ?? 0) - 20)
+        bottomConstraint.constant = -(verticalPosition + (tabBarController?.tabBar.frame.height ?? 0) - 20)
         UIView.animate(withDuration: 0.5) {
             self.view.setNeedsLayout()
             self.view.layoutIfNeeded()
@@ -83,7 +99,7 @@ extension UIViewController {
                                               execute: {
                                                 bottomConstraint.constant = toastHeight
                                                 
-                                                UIView.animate(withDuration: 0.5) {
+                                                UIView.animate(withDuration: timeDismissal) {
                                                     self.view.setNeedsLayout()
                                                     self.view.layoutIfNeeded()
                                                 }
@@ -94,9 +110,13 @@ extension UIViewController {
     
     fileprivate func configureFromTopToBottom(customToastView: CustomToastView,
                                               toastHeight: CGFloat,
-                                              defaultDistance: CGFloat) {
+                                              defaultDistance: CGFloat,
+                                              timeDismissal: Double,
+                                              verticalPosition: CGFloat,
+                                              shouldDismissAfterPresenting: Bool) {
         
-        let topConstraint = customToastView.topAnchor.constraint(equalTo: view.topAnchor, constant: -toastHeight )
+        let topConstraint = customToastView.topAnchor.constraint(equalTo: view.topAnchor,
+                                                                 constant: -verticalPosition )
         
         NSLayoutConstraint.activate([
             customToastView.heightAnchor.constraint(equalToConstant: toastHeight),
@@ -108,7 +128,7 @@ extension UIViewController {
         view.setNeedsLayout()
         view.layoutIfNeeded()
         
-        topConstraint.constant = toastHeight
+        topConstraint.constant = verticalPosition
         UIView.animate(withDuration: 0.5) {
             self.view.setNeedsLayout()
             self.view.layoutIfNeeded()
@@ -118,7 +138,7 @@ extension UIViewController {
                                               execute: {
                                                 topConstraint.constant = -toastHeight
                                                 
-                                                UIView.animate(withDuration: 0.5) {
+                                                UIView.animate(withDuration: timeDismissal) {
                                                     self.view.setNeedsLayout()
                                                     self.view.layoutIfNeeded()
                                                 }
@@ -129,14 +149,18 @@ extension UIViewController {
     
     fileprivate func configureFromLeftToRight(customToastView: CustomToastView,
                                               toastHeight: CGFloat,
-                                              defaultDistance: CGFloat) {
+                                              defaultDistance: CGFloat,
+                                              timeDismissal: Double,
+                                              verticalPosition: CGFloat,
+                                              shouldDismissAfterPresenting: Bool) {
         
-        let leadingConstraint = customToastView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -UIScreen.main.bounds.width)
+        let leadingConstraint = customToastView.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                                         constant: -UIScreen.main.bounds.width)
         
         NSLayoutConstraint.activate([
             customToastView.heightAnchor.constraint(equalToConstant: toastHeight),
             customToastView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - (defaultDistance*2)),
-            customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -toastHeight),
+            customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -verticalPosition),
             leadingConstraint
         ])
         
@@ -153,7 +177,7 @@ extension UIViewController {
                                               execute: {
                                                 leadingConstraint.constant = -UIScreen.main.bounds.width
                                                 
-                                                UIView.animate(withDuration: 0.5) {
+                                                UIView.animate(withDuration: timeDismissal) {
                                                     self.view.setNeedsLayout()
                                                     self.view.layoutIfNeeded()
                                                 }
@@ -164,13 +188,17 @@ extension UIViewController {
     
     fileprivate func configureFromRightToLeft(customToastView: CustomToastView,
                                               toastHeight: CGFloat,
-                                              defaultDistance: CGFloat) {
-        let trailingConstraint = customToastView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: UIScreen.main.bounds.width)
+                                              defaultDistance: CGFloat,
+                                              timeDismissal: Double,
+                                              verticalPosition: CGFloat,
+                                              shouldDismissAfterPresenting: Bool) {
+        let trailingConstraint = customToastView.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                                           constant: UIScreen.main.bounds.width)
         
         NSLayoutConstraint.activate([
             customToastView.heightAnchor.constraint(equalToConstant: toastHeight),
             customToastView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - (defaultDistance*2)),
-            customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -toastHeight),
+            customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -verticalPosition),
             trailingConstraint
         ])
         
@@ -187,7 +215,7 @@ extension UIViewController {
                                               execute: {
                                                 trailingConstraint.constant = UIScreen.main.bounds.width
                                                 
-                                                UIView.animate(withDuration: 0.5) {
+                                                UIView.animate(withDuration: timeDismissal) {
                                                     self.view.setNeedsLayout()
                                                     self.view.layoutIfNeeded()
                                                 }
@@ -198,12 +226,13 @@ extension UIViewController {
     
     fileprivate func configureFadeIn(customToastView: CustomToastView,
                                      toastHeight: CGFloat,
-                                     defaultDistance: CGFloat) {
+                                     defaultDistance: CGFloat,
+                                     verticalPosition: CGFloat) {
         NSLayoutConstraint.activate([
             customToastView.heightAnchor.constraint(equalToConstant: toastHeight),
             customToastView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: defaultDistance),
             customToastView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -defaultDistance),
-            customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -toastHeight),
+            customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -verticalPosition),
         ])
         
         UIView.animate(withDuration: 4.0,
@@ -218,12 +247,13 @@ extension UIViewController {
     
     fileprivate func configureFadeOut(customToastView: CustomToastView,
                                       toastHeight: CGFloat,
-                                      defaultDistance: CGFloat) {
+                                      defaultDistance: CGFloat,
+                                      verticalPosition: CGFloat) {
         NSLayoutConstraint.activate([
             customToastView.heightAnchor.constraint(equalToConstant: toastHeight),
             customToastView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: defaultDistance),
             customToastView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -defaultDistance),
-            customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -toastHeight),
+            customToastView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -verticalPosition),
         ])
         
         UIView.animate(withDuration: 3.0,
