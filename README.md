@@ -74,7 +74,7 @@ Toast.Builder()
 
 #### Toast - BackgroundColor, textColor, Font, Title, cornerRadius, textAlignment
 
-#### You can also show a right Action on the Toast
+#### You can also show action on the Toast
 
 picture 
 
@@ -83,7 +83,7 @@ To do that you just need to set the following properties when building your cust
 ```swift
 Toast.Builder()
      .build()
-     .rightActionLabel("UNDO")
+     .rightActionText("UNDO")
      .show(on: self)
 ```
 
@@ -91,7 +91,7 @@ You can also set the specific styles for the action:
 
 ```swift
 Toast.Builder()
-     .rightActionLabel("UNDO")
+     .rightActionText("UNDO")
      .actionFont(UIFont.systemFont(ofSize: 12, weight: .medium))
      .actionTextColor(.white)
      .build()
@@ -102,7 +102,7 @@ You might want to add anaction completion to the above 'UNDO' action :) You can 
 
 ```swift
 Toast.Builder()
-     .rightActionLabel("UNDO")
+     .rightActionText("UNDO")
      .actionFont(UIFont.systemFont(ofSize: 12, weight: .medium))
      .actionTextColor(.white)
      .build()
