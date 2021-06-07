@@ -66,9 +66,10 @@ public class Toast {
             return self
         }
         
-        // TODO: cambiarle el nombre a esto, que se entienda que son los margenes laterales
-        public func defaultDistance(_ defaultDistance: CGFloat) -> Builder {
-            data.defaultDistance = defaultDistance
+        /// This property allows you to change the lateral margins of your toast.
+        /// If you increase this value the width of the toast will decrease.
+        public func sideDistance(_ sideDistance: CGFloat) -> Builder {
+            data.sideDistance = sideDistance
             return self
         }
         

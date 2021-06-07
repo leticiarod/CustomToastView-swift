@@ -39,42 +39,42 @@ extension CustomToastView {
         case .bottomToTop:
             configureFromBottomToTop(customToastView: customToastView, viewController: viewController,
                                      toastHeight: toastData.toastHeight,
-                                     defaultDistance: toastData.defaultDistance,
+                                     defaultDistance: toastData.sideDistance,
                                      timeDismissal: toastData.timeDismissal,
                                      verticalPosition: toastData.verticalPosition,
                                      shouldDismissAfterPresenting: toastData.shouldDismissAfterPresenting)
         case .topToBottom:
             configureFromTopToBottom(customToastView: customToastView, viewController: viewController,
                                      toastHeight: toastData.toastHeight,
-                                     defaultDistance: toastData.defaultDistance,
+                                     defaultDistance: toastData.sideDistance,
                                      timeDismissal: toastData.timeDismissal,
                                      verticalPosition: toastData.verticalPosition,
                                      shouldDismissAfterPresenting: toastData.shouldDismissAfterPresenting)
         case .leftToRight:
             configureFromLeftToRight(customToastView: customToastView, viewController: viewController,
                                      toastHeight: toastData.toastHeight,
-                                     defaultDistance: toastData.defaultDistance,
+                                     defaultDistance: toastData.sideDistance,
                                      timeDismissal: toastData.timeDismissal,
                                      verticalPosition: toastData.verticalPosition,
                                      shouldDismissAfterPresenting: toastData.shouldDismissAfterPresenting)
         case .rightToLeft:
             configureFromRightToLeft(customToastView: customToastView, viewController: viewController,
                                      toastHeight: toastData.toastHeight,
-                                     defaultDistance: toastData.defaultDistance,
+                                     defaultDistance: toastData.sideDistance,
                                      timeDismissal: toastData.timeDismissal,
                                      verticalPosition: toastData.verticalPosition,
                                      shouldDismissAfterPresenting: toastData.shouldDismissAfterPresenting)
         case .fadeIn:
             configureFadeIn(customToastView: customToastView, viewController: viewController,
                             toastHeight: toastData.toastHeight,
-                            defaultDistance: toastData.defaultDistance,
+                            defaultDistance: toastData.sideDistance,
                             timeDismissal: toastData.timeDismissal,
                             verticalPosition: toastData.verticalPosition,
                             shouldDismissAfterPresenting: toastData.shouldDismissAfterPresenting)
         case .fadeOut:
             configureFadeOut(customToastView: customToastView, viewController: viewController,
                              toastHeight: toastData.toastHeight,
-                             defaultDistance: toastData.defaultDistance,
+                             defaultDistance: toastData.sideDistance,
                              timeDismissal: toastData.timeDismissal,
                              verticalPosition: toastData.verticalPosition,
                              shouldDismissAfterPresenting: toastData.shouldDismissAfterPresenting)
