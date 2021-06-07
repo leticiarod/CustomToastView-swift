@@ -5,9 +5,14 @@
 [![License](https://img.shields.io/cocoapods/l/CustomToastView-swift.svg?style=flat)](https://cocoapods.org/pods/CustomToastView-swift)
 [![Platform](https://img.shields.io/cocoapods/p/CustomToastView-swift.svg?style=flat)](https://cocoapods.org/pods/CustomToastView-swift)
 
+A fully customizable library to easily display custom Toast Messages in iOS using Swift!
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+
+## Preview - All the custom toasts you can build!
 
 ![](libraryUsage.gif)
 
