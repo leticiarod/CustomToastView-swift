@@ -56,7 +56,7 @@ public class Toast {
             return self
         }
         
-        public func letIconContentMode(_ letIconContentMode: UIViewContentMode) -> Builder {
+        public func letIconContentMode(_ letIconContentMode: UIView.ContentMode) -> Builder {
             data.leftIconImageContentMode = letIconContentMode
             return self
         }

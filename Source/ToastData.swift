@@ -25,7 +25,7 @@ public struct ToastData {
     var verticalPosition: CGFloat = 54
     var shouldDismissAfterPresenting = true
     var textAlignment: NSTextAlignment = .center
-    var leftIconImageContentMode: UIViewContentMode = .scaleAspectFit
+    var leftIconImageContentMode: UIView.ContentMode = .scaleAspectFit
     
     public init() {
         
