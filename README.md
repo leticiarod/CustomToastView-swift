@@ -39,8 +39,13 @@ Here's an example with a completion from when the user taps the toast:
 Toast.Builder()
      .build()
      .show(on: self) { toast in
-                toast.hide()
+          toast.hide()
      }
+```
+Also `Toast.Builder()` could be stored as a constant class for later usage:
+
+```swift
+let toastBuilder = Toast.Builder()
 ```
 
 #### Animation Types
