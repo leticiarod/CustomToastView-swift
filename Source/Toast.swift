@@ -41,8 +41,8 @@ public class Toast {
         private var data: ToastData = ToastData()
         
         /// Show Toast right action
-        public func rightActionLabel(_ rightActionLabel: String) -> Builder {
-            data.rightActionLabel = rightActionLabel
+        public func rightActionText(_ rightActionText: String) -> Builder {
+            data.actionText = rightActionText
             return self
         }
         

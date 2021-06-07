@@ -38,7 +38,7 @@ class ViewController: UIViewController {
             .textColor(.white)
             .title("Hello! I'm a toast")
             .orientation(.topToBottom)
-            .rightActionLabel("UNDO")
+            .rightActionText("UNDO")
             .actionFont(UIFont.systemFont(ofSize: 12, weight: .medium))
             .actionTextColor(.white)
             .build()

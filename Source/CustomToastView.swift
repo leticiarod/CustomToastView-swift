@@ -66,12 +66,12 @@ public class CustomToastView: UIView {
         
         leftIconImageView.contentMode = data.leftIconImageContentMode
         
-        if let rightActionLabel = data.rightActionLabel {
-            actionLabel.text = rightActionLabel
+        if let rightActionText = data.actionText {
+            actionLabel.text = rightActionText
             toastMessageLabel.textAlignment = .left
             actionLabel.isUserInteractionEnabled = true
         }
-        actionLabel.isHidden = data.rightActionLabel == nil
+        actionLabel.isHidden = data.actionText == nil
         
         toastData = data
     }
