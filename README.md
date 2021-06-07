@@ -56,8 +56,8 @@ The only thing you need to do is to specify the orientation (Animation type) whe
 
 ```swift
 Toast.Builder()
-     .build()
      .orientation(.leftToRight)
+     .build()
      .show(on: self)
 ```
 
@@ -67,8 +67,8 @@ In order to set the `y` position in which the Toast should display we use the `.
 
 ```swift
 Toast.Builder()
-     .build()
      .verticalPosition(150)
+     .build()
      .show(on: self)
 ```
 
@@ -107,8 +107,8 @@ To do that you just need to set the following property when building your custom
 
 ```swift
 Toast.Builder()
-     .build()
      .rightActionText("UNDO")
+     .build()
      .show(on: self)
 ```
 
