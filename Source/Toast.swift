@@ -5,7 +5,7 @@
 //  Created by Leticia Rodriguez on 5/31/21.
 //
 
-public enum ToastOrientation {
+public enum AnimationType {
     case bottomToTop
     case topToBottom
     case leftToRight
@@ -93,7 +93,7 @@ public class Toast {
             return self
         }
         
-        public func orientation(_ orientation: ToastOrientation) -> Builder {
+        public func orientation(_ orientation: AnimationType) -> Builder {
             data.orientation = orientation
             return self
         }
